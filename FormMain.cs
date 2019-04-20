@@ -634,7 +634,7 @@ namespace FF12RNGHelperPC
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string message = "FF12 RNG Helper PC\nVersion 1.0\nA program for manipulating random events in the PC version of Final Fantasy XII.";
+            string message = $"FF12 RNG Helper PC\nVersion {Application.ProductVersion}\nA program for manipulating random events in the PC version of Final Fantasy XII.";
             MessageBox.Show(message, "About this program", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
