@@ -24,10 +24,11 @@ namespace FF12RNGHelperPC
         private static extern bool ReadProcessMemory(IntPtr hProcess,
             IntPtr lpBaseAddress, [Out] byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesRead);
 
-        public static readonly IntPtr FRAME_COUNTER_ADDR = new IntPtr(0x01FD2A2C); //Address of Frame Counter. used as part of RNG Seeding routine.
+        //public static readonly IntPtr FRAME_COUNTER_ADDR = new IntPtr(0x01F7F5A0); //Address of Frame Counter. used as part of RNG Seeding routine.
 
-        public static readonly IntPtr MT_ADDR = new IntPtr(0x02E91830); //Address of first element of mt, an array of 624 Uint32
-        public static readonly IntPtr MTI_ADDR = new IntPtr(0x02E921F0); //Address of mti, an Int32
+        //TODO: Consider including memory addresses for all version of the game.
+        public static readonly IntPtr MT_ADDR = new IntPtr(0x02EB3870); //Address of first element of mt, an array of 624 Uint32
+        public static readonly IntPtr MTI_ADDR = new IntPtr(0x02EB4230); //Address of mti, an Int32
         private const int INT32_SIZE = 4;
         private const int STATE_BUFFER_SIZE = INT32_SIZE * (RNG2002.N + 1);
 
@@ -93,7 +94,7 @@ namespace FF12RNGHelperPC
                 if (bytesRead == STATE_BUFFER_SIZE)
                 {
                     Int32 mti = BitConverter.ToInt32(rngStateBuffer, STATE_BUFFER_SIZE - INT32_SIZE);
-                    UInt32[] mt = new UInt32[624];
+                    UInt32[] mt = new UInt32[RNG2002.N];
                     //Memory copy shenanigans abound. Fortunately these two arrays are binary compatible
                     Buffer.BlockCopy(rngStateBuffer, 0, mt, 0, STATE_BUFFER_SIZE - INT32_SIZE);
                     state = new RNGState

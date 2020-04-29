@@ -38,7 +38,7 @@ namespace FF12RNGHelperPC
         {
             //TODO: Consider splitting ChestSpawn into its own class, and make its own future class if lack of caching turns out to be performance issue.
             //No need to implement future sync either because no cached future.
-            //Or maybe just put a simple future calculaztion into the Chest Class?
+            //Or maybe just put a simple future calculation into the Chest Class?
             for (int i = 0; i < SearchDepth; i++)
             {
                 if (this.Chest.CheckSpawn(rng, i + offset))

@@ -121,6 +121,12 @@ namespace FF12RNGHelperPC
 
         private void UpdateGridView(int syncCount = -1)
         {
+            //Force Grid Rebuild if it has no entries
+            if(syncCount >= 0 && RowInfo.Count <= 0)
+            {
+                syncCount = -1;
+            }
+
             if(syncCount == 0)
             {
                 //We good

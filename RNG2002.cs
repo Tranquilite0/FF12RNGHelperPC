@@ -8,7 +8,7 @@ namespace FF12RNGHelperPC
     public class RNG2002 : IRNG
     {
         /// <summary>
-        /// This is the seed the FF12:TZA PC uses
+        /// This is the seed FF12:TZA PC uses
         /// </summary>
         public const UInt32 DEFAULT_SEED = 4537U; // 5489U is default seed. PS2 and PS4/FF12:ZA uses 4537.
                                                   //  However TZA PC seems to seed differently with each save load. So seed is irrelevant.
@@ -182,7 +182,7 @@ namespace FF12RNGHelperPC
         }
 
         /// <summary>
-        /// Advances the RNG numtoadvance positions into the future
+        /// Advances the RNG numToAdvance positions into the future
         /// </summary>
         /// <param name="numToAdvance">number of positions to advance</param>
         public void AdvanceRand(int numToAdvance)
